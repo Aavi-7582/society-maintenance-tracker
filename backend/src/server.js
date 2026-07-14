@@ -14,19 +14,22 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
-const app=express()
+const app = express()
 
-app.use(cors())
+app.use(cors({
+  origin: 'https://your-frontend-name.onrender.com',
+  credentials: true
+}));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 
-app.get('/api/health',(req,res)=>{
-    res.status(200).json({ status: 'UP', timestamp: new Date() });
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'UP', timestamp: new Date() });
 })
 
-app.use('/api/auth',authRoutes);
-app.use('/api/complaints',complaintRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/complaints', complaintRoutes);
 app.use('/api/admin', AdminRoutes);
 app.use('/api/notices', NoticeRoutes);
 app.use('/api/admin/dashboard', DashboardRoutes);
