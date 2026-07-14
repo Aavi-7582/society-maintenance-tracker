@@ -1,7 +1,7 @@
 import realAxios from 'axios';
 
 const api = realAxios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'https://society-backend-xxxx.onrender.com/api',
 });
 
 api.interceptors.request.use(
