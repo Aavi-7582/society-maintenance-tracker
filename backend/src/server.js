@@ -17,7 +17,7 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 const app = express()
 
 app.use(cors({
-  origin: 'https://your-frontend-name.onrender.com',
+  origin: 'https://society-frontend-14ht.onrender.com',
   credentials: true
 }));
 app.use(express.json())
